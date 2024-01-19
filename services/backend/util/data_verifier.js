@@ -36,9 +36,6 @@ function verify({
   let name = name_verify(param_received, params_wanted);
   let data = data_verify(param_data);
   let is_valid = amount && name && data;
-  console.log(amount);
-  console.log(name);
-  console.log(data);
   return is_valid;
 }
 

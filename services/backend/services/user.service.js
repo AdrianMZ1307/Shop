@@ -59,8 +59,8 @@ async function login(data) {
 //* Register a user
 async function register(data) {
   await User.create({
-    username: req.body.username,
-    password: bcrypt.hashSync(req.body.password, 8),
+    username: data.username,
+    password: bcrypt.hashSync(data.password, 8),
     role_id: data.role_id,
   })
     .then((user) => {
