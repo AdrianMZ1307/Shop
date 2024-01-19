@@ -1,4 +1,5 @@
 //* Packages
+const bcrypt = require("bcryptjs");
 const cors = require("cors");
 const express = require("express");
 const app = express();
@@ -33,7 +34,15 @@ app.listen(PORT, async () => {
     const User = models.user;
     let placeholder_data = require("./public/assets/data/user.js");
     placeholder_data["data"].forEach((user) => {
-      User.create(user);
+      let pswd = bcrypt.hashSync(user.password, 8);
+      let data = {
+        id: user.id,
+        username: user.username,
+        password: pswd,
+        role_id: user.role_id,
+        image: user.image,
+      };
+      User.create(data);
     });
   }
   console.log(`The server is running on port ${PORT}`);
