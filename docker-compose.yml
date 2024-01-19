@@ -6,6 +6,29 @@ services:
     hostname: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MARIADB_DATABASE=shop
+      - MYSQL_DATABASE=database
     ports:
       - 3306:3306
+    volumes:
+      - ${VOLUME_DIR}/database/MYSQL/data:/var/lib/mysql
+  backend:
+    build:
+      context: services/backend/
+      dockerfile: Dockerfile
+    image: backend:backend-api
+    container_name: backend
+    hostname: backend
+    environment:
+      - APP_PORT=${NODE_PORT}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - TOKEN_TIMEOUT=${TOKEN_TIMEOUT}
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysql
+    volumes:
+      - ${VOLUME_DIR}/backend/:/upload

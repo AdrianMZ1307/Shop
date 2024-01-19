@@ -1,0 +1,37 @@
+{
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "test",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql",
+    "logging": false
+  },
+  "dev": {
+    "username": "root",
+    "password": "root",
+    "database": "database",
+    "host": "mysql",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "pre": {
+    "username": "test",
+    "password": "test",
+    "database": "test",
+    "host": "192.168.110.199",
+    "port": 3306,
+    "dialect": "mysql",
+    "logging": false
+  },
+  "pro": {
+    "username": "root",
+    "password": "root",
+    "database": "database",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql",
+    "logging": false
+  }
+}
