@@ -1,0 +1,17 @@
+{
+  "name": "shop_backend",
+  "version": "1.0.0",
+  "description": "NodeJS backend for the shop tasks",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index"
+  },
+  "author": "Adrián Muriel Zamora",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+    },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
